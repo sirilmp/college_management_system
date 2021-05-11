@@ -1,0 +1,138 @@
+<section>
+    <div class="container mt-4">
+
+        {{#if feeData.due}}
+
+
+        <div class="text-center">
+            <i class="fas fa-exclamation-circle text-warning" style="font-size: 40px;"></i>
+            <br>
+            <h4 class="text-warning mt-3" style="text-transform: uppercase;letter-spacing: .5px;"><span
+                    class="text-danger">"{{feeData.Amount}}"</span> is grater than <span
+                    class="text-danger">"{{feeData.Sem}}"</span> sem fee</h4>
+            <br>
+            <button onclick="goBack()" class="btn btn-primary"><i class="fas fa-reply"></i></button>
+        </div>
+
+        {{else if feeData.student}}
+
+        <div class="text-center">
+            <i class="fas fa-exclamation-circle text-warning" style="font-size: 40px;"></i>
+            <br>
+            <h4 class="text-warning mt-3" style="text-transform: uppercase;letter-spacing: .5px;">register number <span
+                    class="text-danger">"{{feeData.RegNo}}"</span> did not find</h4>
+            <br>
+            <button onclick="goBack()" class="btn btn-primary"><i class="fas fa-reply"></i></button>
+        </div>
+
+        {{else}}
+
+        <form class="row g-3 mt-3" action="/staffs/verified" method="POST">
+            <div class="col-md-4">
+                <label class="form-label">REG. NO.</label>
+                <input type="text" class="form-control text-danger not-allowed" name="RegNo"
+                    value="{{feeData.checkStudentData.RegNo}}" readonly>
+            </div>
+
+            <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">ADMISSION CODE</label>
+                <input type="text" class="form-control text-danger not-allowed" value="{{feeData.checkStudentData.Admissioncode}}"
+                    disabled>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">DEPARTMENT</label>
+                <input type="text" class="form-control text-danger not-allowed" value="{{feeData.checkStudentData.Department}}"
+                    disabled>
+            </div>
+
+            <div class="col-md-6 mt-5">
+                <label class="form-label">NAME</label>
+                <input type="text" class="form-control text-danger not-allowed" value="{{feeData.checkStudentData.Name}}" disabled>
+            </div>
+
+            <div class="col-md-3 mt-5">
+                <label class="form-label">HOUSE NAME</label>
+                <input type="text" class="form-control text-danger not-allowed" value="{{feeData.checkStudentData.HouseName}}"
+                    disabled>
+            </div>
+
+            <div class="col-md-3 mt-5">
+                <label class="form-label">PLACE</label>
+                <input type="text" class="form-control text-danger not-allowed" value="{{feeData.checkStudentData.Place}}" disabled>
+            </div>
+
+            <hr class="text-primary mt-5" style="height: 10px; border-radius: 5px;">
+
+            <div class="col-md-3">
+                <label>SI.NO :</label> 
+                <input class="form-control mt-2 text-danger not-allowed" type="text"
+                    value="{{feeData.checkStudentData.RegNo}}/{{feeData.checkFeeData.Sem}}{{feeData.Sem}}/{{feeData.Date}}"
+                    name="SiNo" readonly>
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">DATE OF PAY</label>
+                <input type="text" id="date" class="form-control text-danger not-allowed" name="Date" value="{{feeData.Date}}" readonly>
+            </div>
+
+            <div class="col-md-1">
+                <label class="form-label">SEM</label>
+                <input type="text" class="form-control text-danger not-allowed" name="Sem"
+                    value="{{feeData.checkFeeData.Sem}}{{feeData.Sem}}" readonly>
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">TOTAL/SEM {{feeData.checkFeeData.Sem}}</label>
+                <input type="number" class="form-control text-danger not-allowed" name="Total"
+                    value="{{feeData.checkFeeData.Total}}{{feeData.Total}}" readonly>
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">PAYING</label>
+                <input type="number" class="form-control text-danger not-allowed" name="Amount" value="{{feeData.Amount}}" readonly>
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">DUE</label>
+                <input type="number" class="form-control text-danger not-allowed" name="Due" value="{{feeData.Due}}" readonly>
+            </div>
+
+            <div class="row g-0 verify">
+
+                <div class="col-md-6 verify-l">
+                    <input class="form-control bg-danger text-light not-allowed" type="text" value="verified by" readonly>
+                </div>
+
+                <div class="col-md-6 verify-r">
+                    <input class="form-control bg-danger text-light not-allowed" type="text" name="verified" value="{{staff.Name}}" readonly>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-5 pr-4">
+                <h5 onclick="goBack()" class="btn btn-warning text-light" style="margin-top: 6px;">EDITING</h5>
+
+                {{!--
+                <button type="button" class="btn btn-light text-light" disabled> hvhbm,</button> --}}
+                <button type="submit" class="btn btn-success" onclick="">VERIFIED</button>
+
+            </div>
+        </form>
+        {{/if}}
+    </div>
+</section>
+
+
+
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+
+    document.getElementsByClassName('form-control').addEventListener("mousedown", function (event) {
+        event.preventDefault();
+    });
+
+</script>

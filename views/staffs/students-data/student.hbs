@@ -1,0 +1,62 @@
+<section>
+    <div class="container">
+        <div class="mt-5">
+           
+            <table class="table">
+                <thead class="table-info">
+                    <tr>
+                        <th scope="col">Reg.No</th>
+                       
+                        <th scope="col">Name</th>
+                        <th scope="col">Sex</th>
+                        <th scope="col">DoB</th>
+                        <th scope="col">House Name</th>
+                        <th scope="col">Place</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Admission Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     {{#each studentsValues}}
+                    <tr>
+                        <th>{{RegNo}}</th>
+                        <th>{{Name}}</th>
+                        <th>{{Sex}}</th>
+                        <th>{{DoB}}</th>
+                        <th>{{HouseName}}</th>
+                        <th>{{Place}}</th>
+                        <th>{{Mob}}</th>
+                        <th>{{Department}}</th>
+                        <th>{{Admissioncode}}</th>
+
+                    </tr>
+                      {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a href="/staffs/qw">qw</a>
+</section>
+
+{{!--
+<script>
+    today = new Date()
+    past = new Date(2010, 05, 01) // remember this is equivalent to 06 01 2010
+    //dates in js are counted from 0, so 05 is june
+    function calcDate(date1, date2) {
+        var diff = Math.floor(date1.getTime() - date2.getTime());
+        var day = 1000 * 60 * 60 * 24;
+
+        var days = Math.floor(diff / day);
+        var months = Math.floor(days / 31);
+        var years = Math.floor(months / 12);
+
+        alert(years)
+
+    }
+
+
+    a = calcDate(today, past)
+
+</script> --}}

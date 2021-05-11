@@ -1,0 +1,80 @@
+<div class="main">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-6 form-bg">
+                <div class="form-group">
+                    <form class="row g-3" action="/staffs/check-fee-data" method="POST">
+
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="name">name :</label>
+                                <input class="form-input" type="text" name="Name" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group form-icon">
+                                <label for="DoB">date of birth :</label>
+                                <input class="date" type="text" data-large-mode="true" data-theme="my-style"/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="form-radio">
+                                <label for="gender">Gender :</label>
+                                <div class="form-flex">
+                                    <input type="radio" name="gender" value="male" id="male" checked="checked" />
+                                    <label for="male">Male</label>
+
+                                    <input type="radio" name="gender" value="female" id="female" />
+                                    <label for="female">Female</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="mob">Mobile No :</label>
+                                <input class="form-input" type="number" name="Mob" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="houseName">house name :</label>
+                                <input class="form-input" type="text" name="HouseName" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="place">place :</label>
+                                <input class="form-input" type="text" name="Place" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                               <input class="date" type="text" data-large-mode="true" data-large-default="true" data-translate-mode="true" data-theme="my-style"/>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary mt-4" type="submit">CHECK</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+        <script>
+            $('.date').dateDropper();
+        </script>

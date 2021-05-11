@@ -1,0 +1,25 @@
+<section>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <form action="/teachers/login" method="POST" method="POST">
+                    {{#if loginErr}}
+                    <p class="text-center text-danger">{{loginErr}}</p>
+                    {{/if}}
+                    <div class="mb-3">
+                        <label for="">Email address</label>
+                        <input type="email" class="form-control" name="Email" placeholder="Enter email">
+                    </div>
+
+                    <div>
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" name="Password" placeholder="Password">
+                    </div>
+
+                    <button type="submit" class="btn mt-2"
+                        style="background-color: #194350; color: #ffff;">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

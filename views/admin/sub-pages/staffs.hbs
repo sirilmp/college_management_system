@@ -1,0 +1,32 @@
+    <h2 class="text-center fm-bold text-info">OFFICE STAFFS</h2>
+    <table id="s" class=" display table table-bordered border-info table-info table-striped table-hover">
+      <thead>
+        <tr class="text-primary">
+          {{!-- <th scope="col">#</th> --}}
+          <th scope="col">Nmae</th>
+          <th scope="col">Mobile</th>
+          <th scope="col">Designation</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each staffsValues}}
+        <tr>
+          {{!-- <th scope="row">{{@index}}</th> --}}
+          <td>{{this.Name}}</td>
+          <td>{{this.Number}}</td>
+          <td>{{this.Designation}}</td>
+        </tr>
+        <tr>
+          {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.4/js/jquery.data"></script>
+  <script>
+    $(document).ready( function () {
+    $('#s').DataTable();
+} );
+  </script>

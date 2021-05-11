@@ -1,0 +1,94 @@
+<section>
+  <div class="container mt-5">
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Create Accounts
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/admin/create-staffs-account">Office Staff</a></li>
+        <li><a class="dropdown-item" href="/admin/create-teachers-account">Teacher</a></li>
+        <li><a class="dropdown-item" href="/admin/create-librarian-account">Librarian</a></li>
+      </ul>
+    </div>
+    <h2 class="text-center fm-bold text-info">OFFICE STAFFS</h2>
+    <table class="table table-bordered border-info table-info table-striped table-hover">
+      <thead>
+        <tr class="text-primary">
+          <th scope="col">#</th>
+          <th scope="col">Nmae</th>
+          <th scope="col">Mobile</th>
+          <th scope="col">Designation</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each staffsValues}}
+        <tr>
+          <th scope="row">{{@index}}</th>
+          <td>{{this.Name}}</td>
+          <td>{{this.Number}}</td>
+          <td>{{this.Designation}}</td>
+        </tr>
+        <tr>
+          {{/each}}
+      </tbody>
+    </table>
+  </div>
+  <div class="container mt-5">
+    <h2 class="text-center fm-bold text-info">TEACHERS</h2>
+    <table class="table table-bordered border-info table-info table-striped table-hover">
+      <thead>
+        <tr class="text-primary">
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Mobile</th>
+          <th scope="col">Department</th>
+          <th scope="col">Designation</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each teachersValues}}
+        <tr>
+          <th scope="row">{{inc @index}}</th>
+          <td>{{this.Name}}</td>
+          <td>{{this.Number}}</td>
+          <td>{{this.Department}}</td>
+          <td>{{this.Designation}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container mt-5">
+    <h2 class="text-center fm-bold text-info">STUDENTS</h2>
+    <table class="table table-bordered border-info table-info table-striped table-hover">
+      <thead>
+        <tr class="text-primary">
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

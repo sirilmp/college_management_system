@@ -1,0 +1,335 @@
+<section>
+  <div class="container">
+    <div class="container mt-5">
+      <h2 class="text-center fm-bold text-info mb-3" style="font-family: 'Courgette', cursive;font-weight: bolder;">
+        Teachers</h2>
+
+      {{!-- profile datas by departments --}}
+
+      <div class="row mb-5">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" id="popupCS" class="btn btn-primary">Computer studies</button>
+          <button type="button" id="popupC" class="btn btn-info text-light">Commerce</button>
+          <button type="button" class="btn btn-primary">Economics</button>
+        </div>
+      </div>
+
+      <table class="table table-bordered border-light table-striped table-hover display " id="teachersTable">
+        <thead>
+
+          <tr class="bg-info text-light">
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">House Name</th>
+            <th scope="col">Place</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Email Id</th>
+            <th scope="col">Department</th>
+            <th scope="col">Designation</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {{#each teachersValues}}
+          {{#ifeq Department 'Computer studies'}}
+
+          <tr style="color:#ffff;background:#8ab6d6;">
+            <th scope="row">{{inc @index}}</th>
+            <td>{{this.Name}}</td>
+            <td>{{this.DoB}}</td>
+            <td>{{this.HouseName}}</td>
+            <td>{{this.Place}}</td>
+            <td>{{this.Mob}}</td>
+            <td>{{this.Email}}</td>
+            <td>{{this.Department}}</td>
+            <td>{{this.Designation}}</td>
+          </tr>
+
+          {{/ifeq}}
+
+          {{#ifeq Department 'Economics'}}
+
+          <tr style="color:#fefefe;background-color: #2978b5;">
+            <th>{{inc @index}}</th>
+            <td>{{this.Name}}</td>
+            <td>{{this.DoB}}</td>
+            <td>{{this.HouseName}}</td>
+            <td>{{this.Place}}</td>
+            <td>{{this.Mob}}</td>
+            <td>{{this.Email}}</td>
+            <td>{{this.Department}}</td>
+            <td>{{this.Designation}}</td>
+          </tr>
+
+          {{/ifeq}}
+
+          {{#ifeq Department 'Commerce'}}
+          <tr style="color: #ffff; background: #0061a8;">
+            <td scope="row">{{inc @index}}</td>
+            <td>{{this.Name}}</td>
+            <td>{{this.DoB}}</td>
+            <td>{{this.HouseName}}</td>
+            <td>{{this.Place}}</td>
+            <td>{{this.Mob}}</td>
+            <td>{{this.Email}}</td>
+            <td>{{this.Department}}</td>
+            <td>{{this.Designation}}</td>
+          </tr>
+
+          {{/ifeq}}
+
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+
+{{!-- <div id="profileCS" class="profile-box">
+
+  <!-- Modal content -->
+  <div class="profile-content">
+    <span class="close" id="closeCS">&times;</span>
+
+    {{#each teachersValues}}
+
+    {{#ifeq Department 'Computer studies'}}
+
+    <div class="row m-0 p-4">
+      <div class="col-md-6 image">
+        <img src="/images/teachers/{{this._id}}.jpg" alt="img">
+      </div>
+      <div class="col-md-6 my-auto">
+        <div class="pro-data">
+          <td>Name :</td>
+          <td><span>{{this.Name}}</span></td>
+        </div>
+        <div class="pro-data">
+          <td>Address :</td>
+          <td><span>{{this.HouseName}}</span></td>
+        </div>
+        <div class="pro-data">
+          <td>Place :</td>
+          <td><span>{{this.Place}}</span></td>
+        </div>
+        <div class="pro-data">
+          <td>Sex :</td>
+          <td><span>{{this.Sex}}</span></td>
+        </div>
+        <div class="pro-data">
+          <td>DoB :</td>
+          <td><span>{{this.DoB}}</span></td>
+        </div>
+        <div class="pro-data">
+          <td>Mobile :</td>
+          <td><span>{{this.Mob}}</span></td>
+        </div>
+        <div class="pro-data">
+          <td>Department :</td>
+          <td><span>{{this.Department}}</span></td>
+        </div>
+        <div class="pro-data">
+          <td>Designation :</td>
+          <td><span>{{this.Designation}}</span></td>
+        </div>
+      </div>
+    </div>
+
+    {{/ifeq}}
+
+    {{/each}}
+  </div>
+</div>
+
+<div id="profileC" class="profile">
+
+  <!-- Modal content -->
+  <div class="profile-content">
+    <span class="close" id="close">&times;</span>
+
+    {{#each teachersValues}}
+
+    {{#ifeq Department 'Commerce'}}
+
+    <div class="row m-0 p-4">
+      <div class="col-md-6 image">
+        <img src="/images/teachers/{{this._id}}.jpg" alt="img">
+      </div>
+      <div class="col-md-6 my-auto">
+        <div class="pro-data">
+          <td>Name :</td>
+          <td><span>{{this.Name}}</span></td>
+        </div>
+        <div class="pro-data">
+          <td>Address :</td>
+          <td><span>{{this.HouseName}}</span></td>
+        </div>
+        <div class="pro-data">
+          <td>Place :</td>
+          <td><span>{{this.Place}}</span></td>
+        </div>
+        <div class="pro-data">
+          <td>Sex :</td>
+          <td><span>{{this.Sex}}</span></td>
+        </div>
+        <div class="pro-data">
+          <td>DoB :</td>
+          <td><span>{{this.DoB}}</span></td>
+        </div>
+        <div class="pro-data">
+          <td>Mobile :</td>
+          <td><span>{{this.Mob}}</span></td>
+        </div>
+        <div class="pro-data">
+          <td>Department :</td>
+          <td><span>{{this.Department}}</span></td>
+        </div>
+        <div class="pro-data">
+          <td>Designation :</td>
+          <td><span>{{this.Designation}}</span></td>
+        </div>
+      </div>
+    </div>
+
+    {{/ifeq}}
+
+    {{/each}}
+  </div>
+</div> --}}
+
+{{!-- <style>
+  .pro-data {
+    font-weight: 800;
+    color: #949EB2;
+    margin-bottom: 5px;
+  }
+
+  .pro-data span {
+    margin-left: 8px;
+    color: #2a3d66;
+  }
+
+  .image img {
+    width: 270px;
+    height: 300px;
+    border-radius: 12px;
+    border: 5px solid #2a3d66;
+    transition: 0.6s;
+  }
+
+  .image img:hover {
+    transform: translateY(-4px);
+    transform: translateX(-4px);
+    transition: 0.8s;
+    box-shadow: 3px 3px 14px 0px rgba(43, 62, 103, 0.73);
+    -webkit-box-shadow: 4px 3px 14px 0px rgba(43, 62, 103, 0.73);
+    -moz-box-shadow: 4px 3px 14px 0px rgba(43, 62, 103, 0.73);
+  }
+
+  .profile {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  .profile-box {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .profile-content {
+    background-color: #fefefe;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+  }
+
+  .close {
+    color: #949EB2;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #2a3d66;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style> --}}
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//cdn.datatables.net/1.10.4/js/jquery.data"></script>
+
+
+{{!-- <script>
+
+  // Get the profile data popup
+
+
+  var profileCS = document.getElementById("profileCS");
+
+  var btnCS = document.getElementById("popupCS");
+
+  //var closeCS = document.getElementById("closeCS")[0];
+
+  var profileC = document.getElementById("profileC");
+
+ var btnC = document.getElementById("popupC");
+
+  var closes = document.getElementsByClassName("close");
+
+  //cs
+  btnCS.onclick = function () {
+    profileCS.style.display = "block";
+  }
+
+  btnC.onclick = function () {
+    profileC.style.display = "block";
+  }
+
+
+  closes.onclick = function () {
+    profileC.style.display = "none";
+  }
+
+  window.onclick = function (event) {
+    if (event.target == profileCS) {
+      profileCS.style.display = "none";
+    }
+  }
+
+  window.onclick = function (event) {
+    if (event.target == profileC) {
+      profileC.style.display = "none";
+    }
+  }
+
+
+  $(document).ready(function () {
+    $('#teachersTable').DataTable();
+  });
+
+
+
+
+</script> --}}

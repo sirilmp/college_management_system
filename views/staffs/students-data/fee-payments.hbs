@@ -1,0 +1,389 @@
+<section>
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-md-8 mt-5">
+        <div class="m-0 pt-3">
+          <button class="btn btn-primary" onclick="openTab('all');">All</button>
+          <button class="btn btn-primary" onclick="openTab('I');">SEM I</button>
+          <button class="btn btn-primary" onclick="openTab('II');">SEM II</button>
+          <button class="btn btn-primary" onclick="openTab('III');">SEM III</button>
+          <button class="btn btn-primary" onclick="openTab('IV');">SEM IV</button>
+          <button class="btn btn-primary" onclick="openTab('V');">SEM V</button>
+          <button class="btn btn-primary" onclick="openTab('VI');">SEM VI</button>
+        </div>
+
+        <div id="all" class="containerTab">
+          <table class="table table table-bordered table-striped table-sm">
+            <thead class="table-info">
+              <tr>
+                <th rowspan="1">Reg.No</th>
+                <th rowspan="1">Name</th>
+                <th rowspan="1">Department</th>
+                <th rowspan="1">Date of Pay</th>
+                <th rowspan="1">SEM</th>
+                <th rowspan="1">Due</th>
+                <th rowspan="1">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each studentsValues}}
+              <tr>
+                <th>{{this.RegNo}}</th>
+                <th>{{studentFeeData.Name}}</th>
+                <th>{{studentFeeData.Department}}</th>
+                <th>{{this.Date}}</th>
+                <th>{{this.Sem}}</th>
+                <th>{{this.Due}}</th>
+                {{#dueCheckT 0 this.Due}}
+                <th class="text-center text-success">P</th>
+                {{else}}
+                <th class="text-center text-danger">NP</th>
+                {{/dueCheckT}}
+                {{/each}}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="I" class="containerTab" style="display:none;">
+          <table class="table table table-bordered table-striped table-sm">
+            <thead class="table-info">
+              <tr>
+                <th rowspan="1">Reg.No</th>
+                <th rowspan="1">Name</th>
+                <th rowspan="1">Department</th>
+                <th rowspan="1">Date of Pay</th>
+                <th rowspan="1">SEM</th>
+                <th rowspan="1">Due</th>
+                <th rowspan="1">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each studentsValues}}
+              {{#ifeq 1 this.Sem}}
+              <tr>
+                <th>{{this.RegNo}}</th>
+                <th>{{studentFeeData.Name}}</th>
+                <th>{{studentFeeData.Department}}</th>
+                <th>{{this.Date}}</th>
+                <th>{{this.Sem}}</th>
+                <th>{{this.Due}}</th>
+                {{#dueCheckT 0 this.Due}}
+                <th class="text-center text-success">P</th>
+                {{else}}
+                <th class="text-center text-danger">NP</th>
+                {{/dueCheckT}}
+                {{/ifeq}}
+                {{/each}}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <div id="II" class="containerTab" style="display:none;">
+          <table class="table table table-bordered table-striped table-sm">
+            <thead class="table-info">
+              <tr>
+                <th rowspan="1">Reg.No</th>
+                <th rowspan="1">Name</th>
+                <th rowspan="1">Department</th>
+                <th rowspan="1">Date of Pay</th>
+                <th rowspan="1">SEM</th>
+                <th rowspan="1">Due</th>
+                <th rowspan="1">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each studentsValues}}
+              {{#ifeq 2 this.Sem}}
+              <tr>
+                <th>{{this.RegNo}}</th>
+                <th>{{studentFeeData.Name}}</th>
+                <th>{{studentFeeData.Department}}</th>
+                <th>{{this.Date}}</th>
+                <th>{{this.Sem}}</th>
+                <th>{{this.Due}}</th>
+                {{#dueCheckT 0 this.Due}}
+                <th class="text-center text-success">P</th>
+                {{else}}
+                <th class="text-center text-danger">NP</th>
+                {{/dueCheckT}}
+                {{/ifeq}}
+                {{/each}}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="III" class="containerTab" style="display:none;">
+          <table class="table table table-bordered table-striped table-sm">
+            <thead class="table-info">
+              <tr>
+                <th rowspan="1">Reg.No</th>
+                <th rowspan="1">Name</th>
+                <th rowspan="1">Department</th>
+                <th rowspan="1">Date of Pay</th>
+                <th rowspan="1">SEM</th>
+                <th rowspan="1">Due</th>
+                <th rowspan="1">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each studentsValues}}
+              {{#ifeq 3 this.Sem}}
+              <tr>
+                <th>{{this.RegNo}}</th>
+                <th>{{studentFeeData.Name}}</th>
+                <th>{{studentFeeData.Department}}</th>
+                <th>{{this.Date}}</th>
+                <th>{{this.Sem}}</th>
+                <th>{{this.Due}}</th>
+                {{#dueCheckT 0 this.Due}}
+                <th class="text-center text-success">P</th>
+                {{else}}
+                <th class="text-center text-danger">NP</th>
+                {{/dueCheckT}}
+                {{/ifeq}}
+                {{/each}}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="IV" class="containerTab" style="display:none;">
+          <table class="table table table-bordered table-striped table-sm">
+            <thead class="table-info">
+              <tr>
+                <th rowspan="1">Reg.No</th>
+                <th rowspan="1">Name</th>
+                <th rowspan="1">Department</th>
+                <th rowspan="1">Date of Pay</th>
+                <th rowspan="1">SEM</th>
+                <th rowspan="1">Due</th>
+                <th rowspan="1">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each studentsValues}}
+              {{#ifeq 4 this.Sem}}
+              <tr>
+                <th>{{this.RegNo}}</th>
+                <th>{{studentFeeData.Name}}</th>
+                <th>{{studentFeeData.Department}}</th>
+                <th>{{this.Date}}</th>
+                <th>{{this.Sem}}</th>
+                <th>{{this.Due}}</th>
+                {{#dueCheckT 0 this.Due}}
+                <th class="text-center text-success">P</th>
+                {{else}}
+                <th class="text-center text-danger">NP</th>
+                {{/dueCheckT}}
+                {{/ifeq}}
+                {{/each}}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="V" class="containerTab" style="display:none;">
+          <table class="table table table-bordered table-striped table-sm">
+            <thead class="table-info">
+              <tr>
+                <th rowspan="1">Reg.No</th>
+                <th rowspan="1">Name</th>
+                <th rowspan="1">Department</th>
+                <th rowspan="1">Date of Pay</th>
+                <th rowspan="1">SEM</th>
+                <th rowspan="1">Due</th>
+                <th rowspan="1">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each studentsValues}}
+              {{#ifeq 5 this.Sem}}
+              <tr>
+                <th>{{this.RegNo}}</th>
+                <th>{{studentFeeData.Name}}</th>
+                <th>{{studentFeeData.Department}}</th>
+                <th>{{this.Date}}</th>
+                <th>{{this.Sem}}</th>
+                <th>{{this.Due}}</th>
+                {{#dueCheckT 0 this.Due}}
+                <th class="text-center text-success">P</th>
+                {{else}}
+                <th class="text-center text-danger">NP</th>
+                {{/dueCheckT}}
+                {{/ifeq}}
+                {{/each}}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="VI" class="containerTab" style="display:none;">
+          <table class="table table table-bordered table-striped table-sm">
+            <thead class="table-info">
+              <tr>
+                <th rowspan="1">Reg.No</th>
+                <th rowspan="1">Name</th>
+                <th rowspan="1">Department</th>
+                <th rowspan="1">Date of Pay</th>
+                <th rowspan="1">SEM</th>
+                <th rowspan="1">Due</th>
+                <th rowspan="1">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each studentsValues}}
+              {{#ifeq 6 this.Sem}}
+              <tr>
+                <th>{{this.RegNo}}</th>
+                <th>{{studentFeeData.Name}}</th>
+                <th>{{studentFeeData.Department}}</th>
+                <th>{{this.Date}}</th>
+                <th>{{this.Sem}}</th>
+                <th>{{this.Due}}</th>
+                {{#dueCheckT 0 this.Due}}
+                <th class="text-center text-success">P</th>
+                {{else}}
+                <th class="text-center text-danger">NP</th>
+                {{/dueCheckT}}
+                {{/ifeq}}
+                {{/each}}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-md-4 p-5">
+        <h4 class="text-center text-primary text-bold">Add Fee</h4>
+        <div class="form-group">
+          <form class="row g-3" action="/staffs/check-fee-data" method="POST">
+
+            <div class="col-md-7">
+              <label>REG.NO :</label>
+              <input class="form-control p mt-2" type="text" name="RegNo" required>
+            </div>
+
+            <div class="col-md-5">
+              <label>SEM :</label>
+              <input class="form-control semdata mt-2" type="text" name="Sem" onchange="semValue(event)" id="sem"
+                required>
+            </div>
+
+            <div class="col-md-6">
+              <label>TOTAL/ <span id="feeSem" style="font-weight: bolder;color: red;"> </span><span>
+                  SEM :</span></label>
+              <input class="form-control semdata mt-2" type="number" min="1" name="Total" required>
+            </div>
+
+            <div class="col-md-6">
+              <label>AMOUNT :</label>
+              <input class="form-control semdata  mt-2" min="1" type="number" name="Amount" required>
+            </div>
+
+            <div class="col-md-7">
+              <label>DATE OF PAY :</label>
+              <input class="form-control semdata not-allowed  mt-2" type="text" name="Date" id="date" required readonly>
+            </div>
+
+            <div class="col-md-5">
+              <label class="text-danger">DUE :</label>
+              <input class="form-control semdata mt-2 bg-danger not-allowed" type="number" name="Due" id="due"
+                placeholder="BLOCKED" readonly>
+            </div>
+
+            <button class="btn btn-primary mt-4" type="submit">CHECK</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<style>
+  .bg-danger::placeholder {
+    color: white;
+  }
+
+  .containerTab {
+    margin-top: 10px;
+    padding: 10px;
+    color: white;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Closable button inside the image */
+  .closebtn {
+    float: right;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+
+  const sem = document.getElementById("sem");
+
+  const feeSem = document.getElementById("feeSem")
+
+  sem.addEventListener('change', value);
+
+  function value(data) {
+
+    feeSem.textContent = data.target.value;
+
+  }
+
+  //display data by sem's
+  function openTab(tabName) {
+    var i, x;
+    x = document.getElementsByClassName("containerTab");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
+  }
+
+
+  //curent data generator
+  function getDate() {
+    var today = new Date();
+    var to = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+      dd = '0' + dd
+    }
+
+    if (mm < 10) {
+      mm = '0' + mm
+    }
+
+    today = dd + '/' + mm + '/' + yyyy;
+    //console.log(today);
+    document.getElementById("date").value = today;
+  }
+
+
+
+
+  window.onload = function () {
+    getDate();
+  };
+</script>
