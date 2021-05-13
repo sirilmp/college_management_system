@@ -2,4 +2,10 @@ node_modules
 
 #  now ignore all the public files there is some unwanted js and css file.
 # Also some lote of images uplode in testing time after complete the project public folder will uplode 
-public
+public/images
+public/jquery-1.10.2.min.js
+public/vendor
+public/javascripts/jQuery.print.js
+public/javascripts/print.js
+public/fonts
+

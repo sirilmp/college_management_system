@@ -1,0 +1,880 @@
+@font-face {
+  font-family: "yearpicker";
+  src: url("src/yearpicker.eot");
+  src: url("src/yearpicker.eot?#iefix") format("embedded-opentype"), url("src/yearpicker.woff") format("woff"), url("src/yearpicker.ttf") format("truetype"), url("src/yearpicker.svg#yearpicker") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="pick-i-"]:before,
+[class*=" pick-i-"]:before {
+  font-family: "yearpicker" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.pick-i-lng:before {
+  content: "";
+}
+.pick-i-lkd:before {
+  content: "";
+}
+.pick-i-ckd:before {
+  content: "";
+}
+.pick-i-r:before {
+  content: "";
+}
+.pick-i-l:before {
+  content: "";
+}
+.pick-i-min:before {
+  content: "";
+}
+.pick-i-exp:before {
+  content: "";
+}
+.picker-input {
+  cursor: text;
+}
+.picker-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9998;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.4s ease, visibility 0.4s ease;
+  -moz-transition: opacity 0.4s ease, visibility 0.4s ease;
+  -ms-transition: opacity 0.4s ease, visibility 0.4s ease;
+  -o-transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.picker-modal-overlay.tohide {
+  opacity: 0;
+  visibility: hidden;
+}
+div.yearpicker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  line-height: 0;
+  font-family: sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  opacity: 0;
+  visibility: hidden;
+  margin-top: 0px;
+  transform-style: preserve-3d;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+div.yearpicker.picker-focus {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 8px;
+}
+div.yearpicker.picker-modal {
+  top: 50%!important;
+  left: 50%!important;
+  -webkit-transform: translate(-50%, -50%) !important;
+  -moz-transform: translate(-50%, -50%) !important;
+  -ms-transform: translate(-50%, -50%) !important;
+  -o-transform: translate(-50%, -50%) !important;
+  position: fixed!important;
+  margin: 0!important;
+}
+div.yearpicker.picker-modal:before {
+  display: none;
+}
+div.yearpicker .picker {
+  overflow: hidden;
+}
+div.yearpicker .picker ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  cursor: pointer;
+}
+div.yearpicker .picker ul.pick {
+  position: relative;
+  overflow: hidden;
+  max-height: 100px;
+}
+div.yearpicker .picker ul.pick:nth-of-type(2) {
+  box-shadow: 0 1px rgba(0, 0, 0, 0.06);
+}
+div.yearpicker .picker ul.pick li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  opacity: .5;
+  display: block;
+}
+div.yearpicker .picker ul.pick li.pick-afr {
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+}
+div.yearpicker .picker ul.pick li.pick-bfr {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+}
+div.yearpicker .picker ul.pick li.pick-sl {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  z-index: 1;
+}
+div.yearpicker .picker ul.pick li span {
+  font-size: 16px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  bottom: 24px;
+}
+div.yearpicker .picker ul.pick .pick-arw {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 25%;
+  font-size: 10px;
+  text-align: center;
+  display: block;
+  z-index: 10;
+  cursor: pointer;
+  background-size: 24px 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  opacity: 0;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+}
+div.yearpicker .picker ul.pick .pick-arw i {
+  line-height: 0;
+  top: 50%;
+  position: relative;
+  display: block;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+div.yearpicker .picker ul.pick .pick-arw.pick-arw-s1:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+div.yearpicker .picker ul.pick .pick-arw.pick-arw-r {
+  right: 0;
+}
+div.yearpicker .picker ul.pick .pick-arw.pick-arw-r i {
+  right: 0;
+}
+div.yearpicker .picker ul.pick .pick-arw.pick-arw-l {
+  left: 0;
+}
+div.yearpicker .picker ul.pick .pick-arw.pick-arw-l i {
+  left: 0;
+}
+div.yearpicker .picker ul.pick .pick-arw.pick-arw-s2.pick-arw-r {
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+}
+div.yearpicker .picker ul.pick .pick-arw.pick-arw-s2.pick-arw-l {
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+}
+@media only screen and (max-width: 480px) {
+  div.yearpicker .picker ul.pick .pick-arw {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    opacity: 0.4;
+  }
+}
+
+div.yearpicker .picker ul.pick.pick-y,
+div.yearpicker .picker ul.pick.pick-l {
+  height: 60px;
+  line-height: 60px;
+}
+
+div.yearpicker .picker ul.pick.pick-y {
+  font-size: 24px;
+}
+div.yearpicker .picker ul.pick.pick-y.pick-jump .pick-arw.pick-arw-s1.pick-arw-r i {
+  right: 16px;
+}
+div.yearpicker .picker ul.pick.pick-y.pick-jump .pick-arw.pick-arw-s1.pick-arw-l i {
+  left: 16px;
+}
+div.yearpicker .picker ul.pick.pick-y.pick-jump .pick-arw.pick-arw-s2.pick-arw-r,
+div.yearpicker .picker ul.pick.pick-y.pick-jump .pick-arw.pick-arw-s2.pick-arw-l {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+}
+div.yearpicker .picker ul.pick.pick-y.pick-jump .pick-arw:hover {
+  -webkit-transform: scale(1.6);
+  -moz-transform: scale(1.6);
+  -ms-transform: scale(1.6);
+  -o-transform: scale(1.6);
+}
+div.yearpicker .picker ul.pick.pick-l {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  font-weight: bold;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(32px);
+  -moz-transform: translateY(32px);
+  -ms-transform: translateY(32px);
+  -o-transform: translateY(32px);
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+}
+div.yearpicker .picker ul.pick.pick-l.visible {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+}
+div.yearpicker .picker ul.pick:hover .pick-arw {
+  opacity: 0.6;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+}
+div.yearpicker .picker ul.pick.pick-d:hover,
+div.yearpicker .picker ul.pick.pick-y:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+div.yearpicker .picker .pick-lg {
+  z-index: 1;
+  margin: 0 auto;
+  max-height: 0;
+  overflow: hidden;
+}
+div.yearpicker .picker .pick-lg.down {
+  animation: down .8s ease;
+}
+div.yearpicker .picker .pick-lg .pick-h {
+  opacity: 0;
+}
+div.yearpicker .picker .pick-lg ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+div.yearpicker .picker .pick-lg ul li {
+  float: left;
+  text-align: center;
+  line-height: 36px;
+  height: 36px;
+  font-size: 14px;
+}
+
+div.yearpicker .picker .pick-lg ul.pick-lg-b {
+  
+}
+div.yearpicker .picker .pick-lg ul.pick-lg-b li {
+ 
+}
+
+div.yearpicker .picker .pick-lg ul.pick-lg-b li.pick-v:hover {
+  text-decoration: underline;
+}
+
+
+div.yearpicker .picker .pick-btns {
+  margin: -1px;
+  position: relative;
+  z-index: 2;
+  height: 56px;
+}
+div.yearpicker .picker .pick-btns div {
+  cursor: pointer;
+  line-height: 0;
+}
+div.yearpicker .picker .pick-btns .pick-submit {
+  margin: 0 auto;
+  width: 56px;
+  height: 56px;
+  line-height: 64px;
+  border-radius: 56px;
+  font-size: 17px;
+  cursor: pointer;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  text-align: center;
+  position: relative;
+  top: 0;
+}
+div.yearpicker .picker .pick-btns .pick-submit:after {
+  font-family: "yearpicker" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 60px;
+  content: "";
+}
+div.yearpicker .picker .pick-btns .pick-submit:hover {
+  top: 4px;
+  box-shadow: 0 0 0 16px rgba(0, 0, 0, 0.04), 0 0 0 8px rgba(0, 0, 0, 0.04);
+}
+div.yearpicker .picker .pick-btns .pick-btn {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  bottom: 0;
+  text-align: center;
+  line-height: 38px;
+  font-size: 16px;
+  margin: 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.03);
+}
+div.yearpicker .picker .pick-btns .pick-btn:hover {
+  background: #FFF;
+  -webkit-box-shadow: 0 0 32px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.1);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+div.yearpicker .picker .pick-btns .pick-btn:after {
+  font-family: "yearpicker" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+div.yearpicker .picker .pick-btns .pick-btn.pick-btn-sz {
+  right: 0;
+  transform-origin: right bottom;
+}
+div.yearpicker .picker .pick-btns .pick-btn.pick-btn-sz:after {
+  content: "";
+}
+div.yearpicker .picker .pick-btns .pick-btn.pick-btn-lng {
+  left: 0;
+  transform-origin: left bottom;
+}
+div.yearpicker .picker .pick-btns .pick-btn.pick-btn-lng:after {
+  content: "";
+}
+div.yearpicker.picker-lg {
+  width: 200px!important;
+}
+div.yearpicker.picker-lg ul.pick.pick-d {
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  max-height: 200!important;
+}
+div.yearpicker.picker-lg .pick-lg {
+  max-height: 200px;
+}
+div.yearpicker.picker-lg .pick-btns .pick-btn.pick-btn-sz:after {
+  content: "";
+}
+@media only screen and (max-width: 480px) {
+  div.yearpicker.picker-lg {
+    position: fixed;
+    top: 50%!important;
+    left: 50%!important;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    margin: 0;
+  }
+  div.yearpicker.picker-lg:before {
+    display: none;
+  }
+}
+@-moz-keyframes picker_locked {
+  0%,
+  100% {
+    -webkit-transform: translateX(-50%) translate3d(0, 0, 0);
+    -moz-transform: translateX(-50%) translate3d(0, 0, 0);
+    -ms-transform: translateX(-50%) translate3d(0, 0, 0);
+    -o-transform: translateX(-50%) translate3d(0, 0, 0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translateX(-50%) translate3d(-2px, 0, 0);
+    -moz-transform: translateX(-50%) translate3d(-2px, 0, 0);
+    -ms-transform: translateX(-50%) translate3d(-2px, 0, 0);
+    -o-transform: translateX(-50%) translate3d(-2px, 0, 0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translateX(-50%) translate3d(2px, 0, 0);
+    -moz-transform: translateX(-50%) translate3d(2px, 0, 0);
+    -ms-transform: translateX(-50%) translate3d(2px, 0, 0);
+    -o-transform: translateX(-50%) translate3d(2px, 0, 0);
+  }
+}
+@-webkit-keyframes picker_locked {
+  0%,
+  100% {
+    -webkit-transform: translateX(-50%) translate3d(0, 0, 0);
+    -moz-transform: translateX(-50%) translate3d(0, 0, 0);
+    -ms-transform: translateX(-50%) translate3d(0, 0, 0);
+    -o-transform: translateX(-50%) translate3d(0, 0, 0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translateX(-50%) translate3d(-2px, 0, 0);
+    -moz-transform: translateX(-50%) translate3d(-2px, 0, 0);
+    -ms-transform: translateX(-50%) translate3d(-2px, 0, 0);
+    -o-transform: translateX(-50%) translate3d(-2px, 0, 0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translateX(-50%) translate3d(2px, 0, 0);
+    -moz-transform: translateX(-50%) translate3d(2px, 0, 0);
+    -ms-transform: translateX(-50%) translate3d(2px, 0, 0);
+    -o-transform: translateX(-50%) translate3d(2px, 0, 0);
+  }
+}
+@keyframes picker_locked {
+  0%,
+  100% {
+    -webkit-transform: translateX(-50%) translate3d(0, 0, 0);
+    -moz-transform: translateX(-50%) translate3d(0, 0, 0);
+    -ms-transform: translateX(-50%) translate3d(0, 0, 0);
+    -o-transform: translateX(-50%) translate3d(0, 0, 0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translateX(-50%) translate3d(-2px, 0, 0);
+    -moz-transform: translateX(-50%) translate3d(-2px, 0, 0);
+    -ms-transform: translateX(-50%) translate3d(-2px, 0, 0);
+    -o-transform: translateX(-50%) translate3d(-2px, 0, 0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translateX(-50%) translate3d(2px, 0, 0);
+    -moz-transform: translateX(-50%) translate3d(2px, 0, 0);
+    -ms-transform: translateX(-50%) translate3d(2px, 0, 0);
+    -o-transform: translateX(-50%) translate3d(2px, 0, 0);
+  }
+}
+@-moz-keyframes picker_locked_large_mobile {
+  0%,
+  100% {
+    -webkit-transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    -moz-transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    -ms-transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    -o-transform: translate(-50%, -50%) translate3d(0, 0, 0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
+    -moz-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
+    -ms-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
+    -o-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
+    -moz-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
+    -ms-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
+    -o-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
+  }
+}
+@-webkit-keyframes picker_locked_large_mobile {
+  0%,
+  100% {
+    -webkit-transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    -moz-transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    -ms-transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    -o-transform: translate(-50%, -50%) translate3d(0, 0, 0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
+    -moz-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
+    -ms-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
+    -o-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
+    -moz-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
+    -ms-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
+    -o-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
+  }
+}
+@keyframes picker_locked_large_mobile {
+  0%,
+  100% {
+    -webkit-transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    -moz-transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    -ms-transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    -o-transform: translate(-50%, -50%) translate3d(0, 0, 0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
+    -moz-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
+    -ms-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
+    -o-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
+    -moz-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
+    -ms-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
+    -o-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
+  }
+}
+div.yearpicker.picker-rmbl {
+  -webkit-animation: picker_locked 0.4s ease;
+  -moz-animation: picker_locked 0.4s ease;
+  animation: picker_locked 0.4s ease;
+}
+@media only screen and (max-width: 480px) {
+  div.yearpicker.picker-rmbl.picker-lg {
+    -webkit-animation: picker_locked_large_mobile 0.4s ease;
+    -moz-animation: picker_locked_large_mobile 0.4s ease;
+    animation: picker_locked_large_mobile 0.4s ease;
+  }
+}
+div.yearpicker.picker-lkd .pick-submit {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: rgba(0, 0, 0, 0.2) !important;
+}
+div.yearpicker.picker-lkd .pick-submit:hover {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+div.yearpicker.picker-lkd .pick-submit:after {
+  content: "\62" !important;
+}
+div.yearpicker.picker-fxs {
+  -webkit-transition: width 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease;
+  -moz-transition: width 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease;
+  -ms-transition: width 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease;
+  -o-transition: width 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease;
+}
+div.yearpicker.picker-fxs ul.pick.pick-d {
+  -webkit-transition: top 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), transform 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), background-color 0.4s ease;
+  -moz-transition: top 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), transform 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), background-color 0.4s ease;
+  -ms-transition: top 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), transform 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), background-color 0.4s ease;
+  -o-transition: top 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), transform 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), background-color 0.4s ease;
+}
+div.yearpicker.picker-fxs ul.pick.pick-y {
+  -webkit-transition: background-color 0.4s ease;
+  -moz-transition: background-color 0.4s ease;
+  -ms-transition: background-color 0.4s ease;
+  -o-transition: background-color 0.4s ease;
+}
+div.yearpicker.picker-fxs ul.pick li {
+  -webkit-transition: transform 0.4s ease, opacity 0.4s ease;
+  -moz-transition: transform 0.4s ease, opacity 0.4s ease;
+  -ms-transition: transform 0.4s ease, opacity 0.4s ease;
+  -o-transition: transform 0.4s ease, opacity 0.4s ease;
+}
+div.yearpicker.picker-fxs ul.pick .pick-arw {
+  -webkit-transition: transform 0.2s ease, opacity 0.2s ease;
+  -moz-transition: transform 0.2s ease, opacity 0.2s ease;
+  -ms-transition: transform 0.2s ease, opacity 0.2s ease;
+  -o-transition: transform 0.2s ease, opacity 0.2s ease;
+}
+div.yearpicker.picker-fxs ul.pick .pick-arw i {
+  -webkit-transition: right 0.2s ease, left 0.2s ease;
+  -moz-transition: right 0.2s ease, left 0.2s ease;
+  -ms-transition: right 0.2s ease, left 0.2s ease;
+  -o-transition: right 0.2s ease, left 0.2s ease;
+}
+div.yearpicker.picker-fxs .pick-lg {
+  -webkit-transition: max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37);
+  -moz-transition: max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37);
+  -ms-transition: max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37);
+  -o-transition: max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37);
+}
+div.yearpicker.picker-fxs .pick-lg .pick-lg-b li:before {
+  -webkit-transition: transform 0.2s ease;
+  -moz-transition: transform 0.2s ease;
+  -ms-transition: transform 0.2s ease;
+  -o-transition: transform 0.2s ease;
+}
+div.yearpicker.picker-fxs .pick-btns .pick-submit {
+  -webkit-transition: top 0.2s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  -moz-transition: top 0.2s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  -ms-transition: top 0.2s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  -o-transition: top 0.2s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+}
+div.yearpicker.picker-fxs .pick-btns .pick-btn {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+}
+@media only screen and (max-width: 480px) {
+  div.yearpicker.picker-fxs {
+    -webkit-transition: opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease;
+    -moz-transition: opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease;
+    -ms-transition: opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease;
+    -o-transition: opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease;
+  }
+  div.yearpicker.picker-fxs ul.pick.pick-d,
+  div.yearpicker.picker-fxs .pick-lg {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+  }
+}
+div.yearpicker.vanilla {
+  border-radius: 6px;
+  width: 180px;
+}
+div.yearpicker.vanilla .picker {
+  border-radius: 6px;
+  box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.1);
+}
+div.yearpicker.vanilla .pick-l {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+div.yearpicker.vanilla:before,
+div.yearpicker.vanilla .pick-submit,
+div.yearpicker.vanilla . .pick-sl:before,
+div.yearpicker.vanilla .pick-m,
+div.yearpicker.vanilla .pick-lg-h {
+  background-color: #feac92;
+}
+div.yearpicker.vanilla .pick-y.pick-jump,
+div.yearpicker.vanilla .pick li span,
+div.yearpicker.vanilla .pick-lg-b .pick-wke,
+div.yearpicker.vanilla .pick-btn {
+  color: #feac92;
+}
+div.yearpicker.vanilla .picker,
+div.yearpicker.vanilla .pick-l {
+  background-color: #ffffff;
+}
+div.yearpicker.vanilla .picker,
+div.yearpicker.vanilla .pick-arw,
+div.yearpicker.vanilla .pick-l {
+  color: #9ed7db;
+}
+div.yearpicker.vanilla .pick-m,
+div.yearpicker.vanilla .pick-m .pick-arw,
+div.yearpicker.vanilla .pick-lg-h,
+div.yearpicker.vanilla .pick-lg-b .pick-sl,
+div.yearpicker.vanilla .pick-submit {
+  color: #faf7f4;
+}
+div.yearpicker.vanilla.picker-tiny:before,
+div.yearpicker.vanilla.picker-tiny .pick-m {
+  background-color: #ffffff;
+}
+div.yearpicker.vanilla.picker-tiny .pick-m,
+div.yearpicker.vanilla.picker-tiny .pick-m .pick-arw {
+  color: #9ed7db;
+}
+div.yearpicker.leaf {
+  border-radius: 6px;
+  width: 180px;
+}
+div.yearpicker.leaf .picker {
+  border-radius: 6px;
+  box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.1);
+}
+div.yearpicker.leaf .pick-l {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+div.yearpicker.leaf:before,
+div.yearpicker.leaf .pick-submit,
+div.yearpicker.leaf .pick-lg-b .pick-sl:before,
+div.yearpicker.leaf .pick-m,
+div.yearpicker.leaf .pick-lg-h {
+  background-color: #1ecd80;
+}
+div.yearpicker.leaf .pick-y.pick-jump,
+div.yearpicker.leaf .pick li span,
+div.yearpicker.leaf .pick-lg-b .pick-wke,
+div.yearpicker.leaf .pick-btn {
+  color: #1ecd80;
+}
+div.yearpicker.leaf .picker,
+div.yearpicker.leaf .pick-l {
+  background-color: #fefff2;
+}
+div.yearpicker.leaf .picker,
+div.yearpicker.leaf .pick-arw,
+div.yearpicker.leaf .pick-l {
+  color: #528971;
+}
+div.yearpicker.leaf .pick-m,
+div.yearpicker.leaf .pick-m .pick-arw,
+div.yearpicker.leaf .pick-lg-h,
+div.yearpicker.leaf .pick-lg-b .pick-sl,
+div.yearpicker.leaf .pick-submit {
+  color: #fefff2;
+}
+div.yearpicker.leaf.picker-tiny:before,
+div.yearpicker.leaf.picker-tiny .pick-m {
+  background-color: #fefff2;
+}
+div.yearpicker.leaf.picker-tiny .pick-m,
+div.yearpicker.leaf.picker-tiny .pick-m .pick-arw {
+  color: #528971;
+}
+div.yearpicker.primary {
+  border-radius: 6px;
+  width: 180px;
+}
+div.yearpicker.primary .picker {
+  border-radius: 6px;
+  box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.1);
+}
+div.yearpicker.primary .pick-l {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+div.yearpicker.primary:before,
+div.yearpicker.primary .pick-submit,
+div.yearpicker.primary .pick-lg-b .pick-sl:before,
+div.yearpicker.primary .pick-m,
+div.yearpicker.primary .pick-lg-h {
+  background-color: #fd4741;
+}
+div.yearpicker.primary .pick-y.pick-jump,
+div.yearpicker.primary .pick li span,
+div.yearpicker.primary .pick-lg-b .pick-wke,
+div.yearpicker.primary .pick-btn {
+  color: #fd4741;
+}
+div.yearpicker.primary .picker,
+div.yearpicker.primary .pick-l {
+  background-color: #ffffff;
+}
+div.yearpicker.primary .picker,
+div.yearpicker.primary .pick-arw,
+div.yearpicker.primary .pick-l {
+  color: #4d4d4d;
+}
+div.yearpicker.primary .pick-m,
+div.yearpicker.primary .pick-m .pick-arw,
+div.yearpicker.primary .pick-lg-h,
+div.yearpicker.primary .pick-lg-b .pick-sl,
+div.yearpicker.primary .pick-submit {
+  color: #ffffff;
+}
+div.yearpicker.primary.picker-tiny:before,
+div.yearpicker.primary.picker-tiny .pick-m {
+  background-color: #ffffff;
+}
+div.yearpicker.primary.picker-tiny .pick-m,
+div.yearpicker.primary.picker-tiny .pick-m .pick-arw {
+  color: #4d4d4d;
+}
+div.yearpicker .null {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+}

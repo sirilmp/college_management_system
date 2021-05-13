@@ -2,30 +2,31 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-12">
 
             </div>
-            <div class="col-md-6 form-bg">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 form-bg">
                 <div class="form-group">
-                    <form class="row g-3" action="/staffs/check-fee-data" method="POST">
+                    <form class="row g-3" action="/staffs/add-student-data" enctype="multipart/form-data" method="POST" id="create-accounts">
 
-                        <div class="col-md-8">
+                        <div class="col-lg-8 col-md-8 col-sm-7 col-7">
                             <div class="form-group">
-                                <label for="name">name :</label>
-                                <input class="form-input" type="text" name="Name" required>
+                                <label for="Name">Name</label>
+                                <input class="form-input" type="text" name="Name" id="Name">
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class=" col-lg-4 col-md-4 col-sm-5 col-5">
                             <div class="form-group form-icon">
-                                <label for="DoB">date of birth :</label>
-                                <input class="date" type="text" data-large-mode="true" data-theme="my-style"/>
+                                <label for="DoB">date of birth</label>
+                                <input type="text" name="DoB" data-large-mode="true" data-large-default="true"
+                                    data-theme="my-style" id="date-picker" onchange="getDate()" />
                             </div>
                         </div>
 
-                        <div class="col-md-5">
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-6">
                             <div class="form-radio">
-                                <label for="gender">Gender :</label>
+                                <label for="gender">Gender</label>
                                 <div class="form-flex">
                                     <input type="radio" name="gender" value="male" id="male" checked="checked" />
                                     <label for="male">Male</label>
@@ -36,32 +37,94 @@
                             </div>
                         </div>
 
-                        <div class="col-md-7">
+                        <div class="col-lg-7 col-md-7 col-sm-6 col-6">
                             <div class="form-group">
-                                <label for="mob">Mobile No :</label>
-                                <input class="form-input" type="number" name="Mob" required>
+                                <label for="mob">Mobile No.</label>
+                                <input class="form-input" type="number" name="Mob">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label for="houseName">house name</label>
+                                <input class="form-input" type="text" name="HouseName">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label for="place">place</label>
+                                <input class="form-input" type="text" name="Place">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="form-group">
+                                <label for="Profile-img">profile image</label>
+                               <input type="file" name="ProfileImage" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple />
+					<label for="file"><i class="fas fa-upload"></i> <span>Choose a file&hellip;</span></label>
+                            </div>
+                        </div>
+
+                        <div class="hr"></div>
+
+                        <div class="col-md-2 col-4">
+                            <div class="form-group">
+                                <label for="Join year">Join year</label>
+                                <input class="form-input" type="text" data-large-mode="true" data-large-default="true"
+                                    data-translate-mode="true" data-theme="my-style" id="year-picker"
+                                    name="JoinYear" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-5 col-8">
+                            <div class="form-group">
+                                <label for="Admission code">Admission code</label>
+                                <input type="text" class="form-input" name="AdmissionCode">
+                            </div>
+                        </div>
+
+                        <div class="col-md-5 col-5">
+                            <div class="form-group">
+                                <label for="RegNo">Reg.no.</label>
+                                <input type="text" class="form-input" name="RegNo">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-7">
+                            <div class="form-group">
+                                <label for="department">department</label>
+                                <div class="select-list">
+                                    <select name="department" id="department" required>
+                                        <option value="Computer studies">Computer studies</option>
+                                        <option value="Computer studies">Computer studies</option>
+                                        <option value="Economics">Economics</option>
+                                        <option value="Commerce">Commerce</option>
+                                        <option value="BA-English">ba english</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hr"></div>
+
+                        <p class="sub-text">login information</p>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Email">email address</label>
+                                <input type="email" class="form-input" name="Email">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="houseName">house name :</label>
-                                <input class="form-input" type="text" name="HouseName" required>
+                                <label for="Password">password</label>
+                                <input type="password" class="form-input" name="Password" id="password">
                             </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="place">place :</label>
-                                <input class="form-input" type="text" name="Place" required>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                               <input class="date" type="text" data-large-mode="true" data-large-default="true" data-translate-mode="true" data-theme="my-style"/>
-                            </div>
-                        </div>
+                        <p class="sub-text">date of birth is the default password</p>
 
                         <button class="btn btn-primary mt-4" type="submit">CHECK</button>
                     </form>
@@ -75,6 +138,13 @@
 
 
 
-        <script>
-            $('.date').dateDropper();
-        </script>
+<script>
+
+    function getDate() {
+        date = document.getElementById('date-picker').value;
+        document.getElementById('password').value = date;
+    }
+
+
+
+</script>

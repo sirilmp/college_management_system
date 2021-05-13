@@ -1,0 +1,68 @@
+/* basic style */
+/*
+
+	INSTRUCTIONS ---------------------------------------------------------------------------------
+  
+  1. link this stylesheet in the head of your HTML
+  	 <link href="YOUR PATH/my-style.css" rel="stylesheet" type="text/css" />
+     
+  2. Set the file name as data-theme attribute on your input
+  	 <input data-theme="my-style" />
+     
+  3. That's it!
+  
+  When you run script the style will be automatically applied.
+
+*/
+div.yearpicker.my-style {
+  border-radius: 8px;
+  width: 180px;
+
+}
+div.yearpicker.my-style .picker {
+  border-radius: 8px;
+  box-shadow: 0 0 32px 0px rgba(0, 0, 0, 0.1);
+}
+div.yearpicker.my-style .pick-l {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+div.yearpicker.my-style:before,
+div.yearpicker.my-style .pick-submit,
+div.yearpicker.my-style .pick-lg-b .pick-sl:before,
+div.yearpicker.my-style .pick-m{
+  background-color: #1da0f2;
+}
+div.yearpicker.my-style .pick-y.pick-jump,
+div.yearpicker.my-style .pick li span,
+div.yearpicker.my-style .pick-lg-b .pick-wke,
+div.yearpicker.my-style .pick-btn {
+  color: #1da0f2;
+}
+div.yearpicker.my-style .picker,
+div.yearpicker.my-style .pick-l {
+  background-color: #fff;
+}
+div.yearpicker.my-style .picker,
+div.yearpicker.my-style .pick-arw,
+div.yearpicker.my-style .pick-l {
+  color: #4d4d4d;
+}
+div.yearpicker.my-style .pick-m,
+div.yearpicker.my-style .pick-m .pick-arw,
+div.yearpicker.my-style .pick-lg-b .pick-sl,
+div.yearpicker.my-style .pick-submit {
+  color: #fff;
+}
+div.yearpicker.my-style.picker-tiny:before,
+div.yearpicker.my-style.picker-tiny .pick-m {
+  background-color: #fff;
+}
+div.yearpicker.my-style.picker-tiny .pick-m,
+div.yearpicker.my-style.picker-tiny .pick-m .pick-arw {
+  color: #4d4d4d;
+}
+div.yearpicker.my-style.picker-lkd .pick-submit {
+  background-color: #fff;
+  color: #4d4d4d;
+}

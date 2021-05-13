@@ -57,7 +57,7 @@ module.exports = {
 
             studentData.Password = await bcrypt.hash(studentData.Password, 10)
 
-            studentData.RePassword = await bcrypt.hash(studentData.RePassword, 10)
+            //studentData.RePassword = await bcrypt.hash(studentData.RePassword, 10)
          
             db.get().collection(collection.STUDENT_DATA_COLLECTION).insertOne(studentData).then((response) => {
 
