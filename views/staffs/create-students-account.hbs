@@ -1,13 +1,23 @@
 <div class="main">
 
     <div class="container">
+        {{#if dataAdded}}
+        <p class="text-center text-success">{{dataAdded}}</p>
+        {{/if}}
+        <div class="home-btn-flex">
+           <div class="di">
+                <a class="home-btn" href="/staffs">home</a>
+           </div>
+        </div>
         <div class="row">
+            <h1 class="main-text">add student</h1>
             <div class="col-lg-3 col-md-12 col-sm-12 col-12">
 
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-12 form-bg">
                 <div class="form-group">
-                    <form class="row g-3" action="/staffs/add-student-data" enctype="multipart/form-data" method="POST" id="create-accounts">
+                    <form class="row g-3" action="/staffs/add-student-data" enctype="multipart/form-data" method="POST"
+                        id="create-accounts">
 
                         <div class="col-lg-8 col-md-8 col-sm-7 col-7">
                             <div class="form-group">
@@ -61,8 +71,10 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="form-group">
                                 <label for="Profile-img">profile image</label>
-                               <input type="file" name="ProfileImage" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple />
-					<label for="file"><i class="fas fa-upload"></i> <span>Choose a file&hellip;</span></label>
+                                <input type="file" name="ProfileImage" id="file" class="inputfile"
+                                    data-multiple-caption="{count} files selected" multiple />
+                                <label for="file"><i class="fas fa-upload"></i> <span>Choose a
+                                        file&hellip;</span></label>
                             </div>
                         </div>
 
@@ -72,8 +84,7 @@
                             <div class="form-group">
                                 <label for="Join year">Join year</label>
                                 <input class="form-input" type="text" data-large-mode="true" data-large-default="true"
-                                    data-translate-mode="true" data-theme="my-style" id="year-picker"
-                                    name="JoinYear" />
+                                    data-translate-mode="true" data-theme="my-style" id="year-picker" name="JoinYear" />
                             </div>
                         </div>
 
@@ -110,23 +121,27 @@
 
                         <p class="sub-text">login information</p>
 
-                        <div class="col-md-6">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <label for="Email">email address</label>
                                 <input type="email" class="form-input" name="Email">
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <label for="Password">password</label>
-                                <input type="password" class="form-input" name="Password" id="password">
+                                <input type="password" class="form-input not-allowed" name="Password" id="password" readonly>
                             </div>
                         </div>
 
-                        <p class="sub-text">date of birth is the default password</p>
+                        <p class="sub-text text-danger">date of birth is the default password</p>
 
-                        <button class="btn btn-primary mt-4" type="submit">CHECK</button>
+                        <div class="hr"></div>
+
+                        <div class="form-group">
+                            <input type="submit" id="submit" class="form-submit" value="Submit" />
+                        </div>
                     </form>
                 </div>
             </div>
@@ -139,6 +154,7 @@
 
 
 <script>
+
 
     function getDate() {
         date = document.getElementById('date-picker').value;

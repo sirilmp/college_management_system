@@ -1,3 +1,17 @@
+body {
+  background-color: #C5E9FF;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase !important;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase !important;
+  font-weight: bolder;
+}
 input,
 textarea {
   outline: none;
@@ -7,7 +21,29 @@ textarea {
   -o-appearance: unset !important;
   -ms-appearance: unset !important;
 }
-
+button{
+  border: 1px solid #1da0f2 !important;
+  background-color: #1da0f2;
+  color: #fff;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  box-sizing: border-box;
+  padding: 15px 20px !important;
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: ease-in .5s;
+}
+button:hover,
+button:focus{
+  background-color: #fff;
+  color: #1da0f2;
+  transition: ease-out .5s;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   appearance: none !important;
@@ -58,10 +94,6 @@ input:-webkit-autofill {
   -o-box-shadow: 0 0 0 30px transparent inset;
   -ms-box-shadow: 0 0 0 30px transparent inset;
 }
-body {
-  height: 100%;
-  background-color: #c5e9ff;
-}
 .main {
   font-size: 13px;
   line-height: 1.8;
@@ -69,7 +101,7 @@ body {
   font-weight: 600;
   font-family: "Montserrat";
   background: #c5e9ff;
-  padding: 50px 0 0 0;
+  padding: 50px 0 50px 0;
 }
 .form-bg {
   background-color: #fff;
@@ -80,6 +112,7 @@ label,
 input {
   display: block;
   width: 100%;
+  font-weight: bold;
   text-transform: uppercase;
 }
 input{
@@ -122,7 +155,79 @@ input:-moz-placeholder {
 label {
   text-transform: uppercase;
   font-weight: 800;
-  margin-bottom: 4px;
+  margin-bottom: 7px;
+}
+.not-allowed {
+  cursor: not-allowed;
+}
+.form-control {
+  text-transform: uppercase;
+}
+.e-h1 h1 {
+  color: #2b2e4a;
+  text-decoration: underline;
+}
+.receipt-h h6 {
+  text-align: left;
+  padding: 10px;
+  margin-left: 20px;
+}
+.receipt-h h6 span {
+  margin-left: 30px;
+  font-weight: bold;
+}
+.receipt {
+  border-radius: 20px;
+}
+.verify {
+  margin: 0;
+  padding: 0;
+}
+.verify-l input {
+  /* font-size: 10px; */
+  margin-top: 25px;
+  text-align: right;
+  border: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.btn:focus,
+.form-control:focus {
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.verify-r input {
+  /* font-size: 10px; */
+  margin-top: 25px;
+  border: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.verify-right h6 {
+  text-align: right;
+}
+.receipt p {
+  font-size: 10px;
+  text-align: left;
+}
+.printing-data button i {
+  font-size: 20px;
+}
+.printing-data a {
+  color: #fff;
+  text-decoration: none;
+}
+.main-text {
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 20px;
+  color: #0c85d0;
 }
 .form-radio {
   margin-bottom: 4px;
@@ -157,20 +262,20 @@ label {
   -o-border-radius: 5px;
   -ms-border-radius: 5px;
   cursor: pointer;
+  text-transform: uppercase;
+}
+.form-flex input + label:hover {
+  background-color: #fff;
+  color: #1da0f2;
+  border-color: #1da0f2;
 }
 .form-radio input:checked + label {
   background-color: #1da0f2;
   color: #fff;
   border-color: #1da0f2;
-  z-index: 1;
 }
 .form-radio input:focus + label {
   outline: none;
-}
-.form-radio input:hover {
-  background-color: #1da0f2;
-  color: #fff;
-  border-color: #1da0f2;
 }
 
 .form-flex input + label:first-of-type {
@@ -194,20 +299,6 @@ label {
   margin-bottom: 23px;
   position: relative;
 }
-.form-icon {
-  position: relative;
-}
-.ui-datepicker-trigger {
-  position: absolute;
-  right: 20px;
-  top: 40px;
-  color: #1da0f2;
-  font-size: 20px;
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
 .hr {
   width: 100%;
   height: 5px;
@@ -230,35 +321,6 @@ label {
 }
 .form-icon {
   position: relative;
-}
-.ui-datepicker-trigger {
-  position: absolute;
-  right: 25px;
-  top: 41px;
-  color: #999;
-  font-size: 18px;
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-.add-info-link {
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: 900;
-  margin-bottom: 16px;
-  align-items: center;
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  -o-align-items: center;
-  -ms-align-items: center;
-}
-.add-info-link .zmdi {
-  font-size: 18px;
-  padding-right: 14px;
-}
-.add_info {
-  display: none;
 }
 .list-item {
   background: 0 0;
@@ -317,40 +379,43 @@ label.error {
   display: block;
   position: absolute;
   top: 0px;
-  right: 0; }
-  label.error:after {
-    font-family: 'Material-Design-Iconic-Font';
-    position: absolute;
-    content: '\f135';
-    right: 31px;
-    top: 40px;
-    font-size: 13px;
-    color: #c70000; }
+  right: 0;
+}
+label.error:after {
+  font-family: "Material-Design-Iconic-Font";
+  position: absolute;
+  content: "\f135";
+  right: 31px;
+  top: 40px;
+  font-size: 13px;
+  color: #c70000;
+}
 
 input.error {
-  border: 1px solid #c70000; }
-.select-list{
+  border: 1px solid #c70000;
+}
+.select-list {
   margin-left: -30px;
 }
-.sub-text{
+.sub-text {
   text-transform: lowercase;
   text-align: center;
   font-size: 12px;
-  font-family: 'Courgette', cursive;
+  font-family: "Courgette", cursive;
   color: #919191;
 }
 
 .inputfile {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 .inputfile + label {
   color: white;
-  background-color: #4AB3F5;
+  background-color: #1da0f2;
   border: 1px solid #ebebeb !important;
   border-radius: 5px;
   padding: 15px 20px !important;
@@ -359,19 +424,48 @@ input.error {
 }
 .inputfile:focus + label,
 .inputfile + label:hover {
-  background-color: #1da0f2;
+  background-color: #0c85d0;
 }
 .inputfile + label {
-	cursor: pointer;
+  cursor: pointer;
 }
-.form-group i{
+.form-group i {
   color: #fff;
   font-size: 15px;
   margin: 0 6px 0 10px;
 }
 
-
-
-
-
-
+.form-submit{
+  width: auto;
+  background: #1da0f2;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding: 16px 50px;
+  float: right;
+  border: none;
+  margin-top: 37px;
+  cursor: pointer;
+}
+.form-submit:hover {
+  background: #0c85d0;
+}
+.home-btn-flex {
+  margin: 20px 0 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+.home-btn {
+  background-color: #1da0f2;
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  transition: ease-in 0.5s;
+}
+.home-btn:hover {
+  background-color: #fff;
+  columns: #1da0f2;
+  transition: ease-out 0.5s;
+}

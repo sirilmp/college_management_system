@@ -18,12 +18,8 @@ const verifyStaff = (req, res, next) => {
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('staffs/home', { staffs });
-});
-
-router.get('/home', function (req, res, next) {
     let staff = req.session.staff
-    // console.log(req.session.staff);
+    console.log(staff);
     res.render('staffs/home', { staffs, staff });
 });
 
@@ -32,7 +28,7 @@ router.get('/login', (req, res) => {
     //console.log(req.session.loggedin);
     if (req.session.loggedin) {
 
-        res.redirect('home')
+        res.redirect('/staffs')
 
     } else {
 
@@ -56,7 +52,7 @@ router.post('/login', (req, res) => {
 
             req.session.staff = response.staff
 
-            res.redirect('home')
+            res.redirect('/staffs')
 
         } else {
             req.session.loginErr = "Invalid Email or Password !"
@@ -73,16 +69,24 @@ router.get('/logout', (req, res) => {
 
     req.session.destroy()
 
-    res.redirect('home')
+    res.redirect('/staffs')
+})
+
+
+router.get('/create-student-account', (req, res) => {
+
+    res.render('staffs/create-students-account',{"dataAdded":data})
+
+data=false
 })
 
 
 //student data adding
 router.post('/add-student-data', (req, res) => {
 
-   console.log(req.body);
+    console.log(req.body);
 
-   console.log(req.files);
+    // console.log(req.files);
 
     staffsHelpers.addStudentsData(req.body).then((id) => {
 
@@ -92,11 +96,17 @@ router.post('/add-student-data', (req, res) => {
 
             if (!err) {
 
-                res.redirect('home')
+                data="data added successfully !"
+
+                res.redirect('create-student-account');
+
             }
             else {
 
-                console.log(err);
+              data="data cant add"
+
+              res.redirect('create-student-account');
+            
             }
         })
     })

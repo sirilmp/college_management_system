@@ -3,19 +3,20 @@
     <div class="row">
 
 
-      <div class="col-md-8 mt-5">
-        <div class="m-0 pt-3">
-          <button class="btn btn-primary" onclick="openTab('all');">All</button>
-          <button class="btn btn-primary" onclick="openTab('I');">SEM I</button>
-          <button class="btn btn-primary" onclick="openTab('II');">SEM II</button>
-          <button class="btn btn-primary" onclick="openTab('III');">SEM III</button>
-          <button class="btn btn-primary" onclick="openTab('IV');">SEM IV</button>
-          <button class="btn btn-primary" onclick="openTab('V');">SEM V</button>
-          <button class="btn btn-primary" onclick="openTab('VI');">SEM VI</button>
+      <div class="col-md-12 mt-5">
+        <div class="m-0  text-center form-bg">
+          <button onclick="openTab('all');">All</button>
+          <button onclick="openTab('I');">SEM I</button>
+          <button onclick="openTab('II');">SEM II</button>
+          <button onclick="openTab('III');">SEM III</button>
+          <button onclick="openTab('IV');">SEM IV</button>
+          <button onclick="openTab('V');">SEM V</button>
+          <button onclick="openTab('VI');">SEM VI</button>
         </div>
-
-        <div id="all" class="containerTab">
-          <table class="table table table-bordered table-striped table-sm">
+      </div>
+      <div class="col-md-8 mt-5 form-bg">
+        <div id="all" class="containerTab" style="">
+          <table class="table table table-bordered table-striped table-sm hover" id="myTable">
             <thead class="table-info">
               <tr>
                 <th rowspan="1">Reg.No</th>
@@ -259,46 +260,61 @@
         </div>
       </div>
 
-      <div class="col-md-4 p-5">
-        <h4 class="text-center text-primary text-bold">Add Fee</h4>
-        <div class="form-group">
-          <form class="row g-3" action="/staffs/check-fee-data" method="POST">
+      <div class="col-md-4">
 
-            <div class="col-md-7">
-              <label>REG.NO :</label>
-              <input class="form-control p mt-2" type="text" name="RegNo" required>
-            </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 form-bg mt-5">
+          
+            <h4 class="main-text mb-3">payment</h4>
+            <form class="row g-3" action="/staffs/check-fee-data" method="POST">
+              <div class="col-lg-7 col-md-8 col-sm-7 col-7">
+                <div class="form-group">
+                  <label for="RegNo">reg.no.</label>
+                  <input class="form-input" type="text" name="RegNo" id="RegNo">
+                </div>
+              </div>
 
-            <div class="col-md-5">
-              <label>SEM :</label>
-              <input class="form-control semdata mt-2" type="text" name="Sem" onchange="semValue(event)" id="sem"
-                required>
-            </div>
+              <div class="col-lg-5 col-md-8 col-sm-7 col-7">
+                <div class="form-group">
+                  <label for="Sem">sem</label>
+                  <input class="form-input" type="text" name="Sem" id="sem">
+                </div>
+              </div>
 
-            <div class="col-md-6">
-              <label>TOTAL/ <span id="feeSem" style="font-weight: bolder;color: red;"> </span><span>
-                  SEM :</span></label>
-              <input class="form-control semdata mt-2" type="number" min="1" name="Total" required>
-            </div>
+              <div class="col-lg-6 col-md-8 col-sm-7 col-7">
+                <div class="form-group">
+                  <label for="Sem">total/ <span class="text-danger" id="feeSem"></span> <span>sem</span></label>
+                  <input class="form-input" type="text" name="Sem">
+                </div>
+              </div>
 
-            <div class="col-md-6">
-              <label>AMOUNT :</label>
-              <input class="form-control semdata  mt-2" min="1" type="number" name="Amount" required>
-            </div>
+              <div class="col-lg-6 col-md-8 col-sm-7 col-7">
+                <div class="form-group">
+                  <label for="Amount">amount</label>
+                  <input class="form-input" type="number" name="Amount">
+                </div>
+              </div>
 
-            <div class="col-md-7">
-              <label>DATE OF PAY :</label>
-              <input class="form-control semdata not-allowed  mt-2" type="text" name="Date" id="date" required readonly>
-            </div>
+              <div class="col-lg-6 col-md-8 col-sm-7 col-7">
+                <div class="form-group">
+                  <label for="DateOfPay">date of pay</label>
+                  <input class="form-input not-allowed" type="text" id="date" name="DateOfPay" readonly>
+                </div>
+              </div>
 
-            <div class="col-md-5">
-              <label class="text-danger">DUE :</label>
-              <input class="form-control semdata mt-2 bg-danger not-allowed" type="number" name="Due" id="due"
-                placeholder="BLOCKED" readonly>
-            </div>
+              <div class="col-lg-6 col-md-8 col-sm-7 col-7">
+                <div class="form-group">
+                  <label for="Due">due</label>
+                  <input class="form-input text-light bg-danger not-allowed" placeholder="blocked" type="text"
+                    name="Due" readonly>
+                </div>
+              </div>
 
-            <button class="btn btn-primary mt-4" type="submit">CHECK</button>
-          </form>
+              <div class="form-group">
+                <input type="submit" class="form-submit" value="submit">
+              </div>
+
+            </form>
+         
         </div>
       </div>
     </div>
@@ -335,6 +351,10 @@
 </style>
 
 <script>
+
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
 
   const sem = document.getElementById("sem");
 

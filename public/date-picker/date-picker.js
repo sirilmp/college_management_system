@@ -593,7 +593,7 @@
 					d = get_current('d'),
 					m = get_current('m'),
 					y = get_current('y'),
-					get_day = new Date(m+"/"+d+"/"+y).getDay(),
+					get_day = new Date(d+"/"+m+"/"+y).getDay(),
 
 					str =
 					pickers[picker.id].format
@@ -843,7 +843,7 @@
 				var
 					picker_default_date = ((input.data('default-date'))) ? input.data('default-date') : null,
 					picker_disabled_days = (input.data('disabled-days')) ? input.data('disabled-days').split(',') : null,
-					picker_format = input.data('format') || 'm/d/Y',
+					picker_format = input.data('format') || 'd/m/Y',
 					picker_fx = (input.data('fx')===false) ? input.data('fx') : true,
 					picker_fx_class = (input.data('fx')===false) ? '' : 'picker-fxs',
 					picker_fx_mobile = (input.data('fx-mobile')===false) ? input.data('fx-mobile') : true,
